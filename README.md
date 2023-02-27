@@ -97,7 +97,7 @@
   <br />&emsp;`yarn install`
 * 5.启动项目
   <br />&emsp;`yarn start`
-  6.在app.tsx、public下的iframe文件夹的pdfView.html、video.html和videoPlay.html中找到对应的url，修改后端地址进行数据交互。
+* 6.在app.tsx、public下的iframe文件夹的pdfView.html、video.html和videoPlay.html中找到对应的url，修改后端地址进行数据交互。
 ### 部署
 
 * 打包项目：`yarn build`
