@@ -110,6 +110,7 @@ const responseInterceptors: ResponseInterceptor = (async (response: any, options
 
  * @see https://beta-pro.ant.design/docs/request-cn
  */
+// 生产模式
 let prefix = 'http://xxx.xxx.xx.xxx:xxxxx/open-dbt';
 //开发模式
 if (isDev) prefix = 'http://xxx.xxx.xx.xxx:xxxxx/open-dbt'
