@@ -1,0 +1,112 @@
+.chapter-edit-menu {
+  width: 320px;
+  height: calc(100vh - 56px);
+  font-weight: 400;
+  font-size: 11px;
+  font-family: Microsoft YaHei;
+  background: #ffffff;
+  border: 1px solid #e5e5e5; //top =56
+}
+
+.chapter-edit-menu .card-header-title {
+  width: 100%;
+  height: 54px;
+  background: #FFFFFF;
+  padding: 20px 0 0 40px;
+}
+
+.chapter-edit-menu .menu-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px 20px 10px;
+}
+
+.chapter-edit-menu .panel-item-header {
+  background-color: #d9d9d9;
+  padding-right: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 8px;
+}
+
+.chapter-edit-menu .panel-item-header img,
+.chapter-edit-menu .panel-item-content img {
+  margin-right: 10px;
+}
+
+.chapter-edit-menu .panel-item-header svg,
+.chapter-edit-menu .panel-item-content svg {
+  margin-right: 10px;
+}
+
+.chapter-edit-menu .sel-panel-item {
+  background-color: #00CE9B;
+}
+
+.chapter-edit-menu .panel-item {
+  cursor: pointer;
+}
+
+.chapter-edit-menu .panel-item-content .panel-item {
+  padding-right: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 33px; //与第1章的1对齐
+}
+
+//-----------------章节预览-------------------
+.layer-text {
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 25px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  background: #FDDF66;
+  box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.0900);
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #442410;
+  margin: 0 20px;
+}
+
+.layer-text-finish {
+  margin: 0 20px;
+
+  svg {
+    color: #fff;
+    margin-right: 0px !important;
+  }
+
+  display: inline-block;
+  border-radius: 50%;
+  line-height: 25px;
+  text-align: center;
+  width: 25px;
+  background: #00CE9B;
+  box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.0900);
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #442410;
+}
+
+.chapter-content-right {
+  position: fixed;
+  top: 56px;
+  margin-left: 340px;
+  left: 0;
+  right: 0;
+  height: calc(100% - 56px - 20px);
+  overflow: overlay;
+}
+
+.view-content {
+  background: #fff;
+  width: 960px;
+  min-height: 750px;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 30px;
+}

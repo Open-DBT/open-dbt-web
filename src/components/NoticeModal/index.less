@@ -1,0 +1,161 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-header-hover-bg: rgba(0, 0, 0, 0.025);
+
+.popover {
+  position: relative;
+  width: 336px;
+}
+
+.noticeButton {
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.icon {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 16px;
+}
+
+.tabs {
+  :global {
+    .ant-tabs-nav-list {
+      margin: auto;
+    }
+
+    .ant-tabs-nav-scroll {
+      text-align: center;
+    }
+    .ant-tabs-bar {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  > span {
+    vertical-align: middle;
+  }
+  &:hover {
+    background: @pro-header-hover-bg;
+  }
+  &:global(.opened) {
+    background: @pro-header-hover-bg;
+  }
+}
+
+.list {
+  max-height: 433px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .item {
+    padding-right: 24px;
+    padding-left: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    .meta {
+      width: 100%;
+    }
+
+    .avatar {
+      margin-top: 4px;
+      background: @component-background;
+    }
+    .iconElement {
+      font-size: 32px;
+    }
+
+    &.read {
+      opacity: 0.4;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+    &:hover {
+      background: @primary-1;
+    }
+    .title {
+      margin-bottom: 8px;
+      font-weight: normal;
+    }
+    .description {
+      font-size: 12px;
+      line-height: @line-height-base;
+    }
+    .datetime {
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: @line-height-base;
+    }
+    .extra {
+      float: right;
+      margin-top: -1.5px;
+      margin-right: 0;
+      color: @text-color-secondary;
+      font-weight: normal;
+    }
+  }
+  .loadMore {
+    padding: 8px 0;
+    color: @primary-6;
+    text-align: center;
+    cursor: pointer;
+    &.loadedAll {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: unset;
+    }
+  }
+}
+
+.notFound {
+  padding: 73px 0 88px;
+  color: @text-color-secondary;
+  text-align: center;
+  img {
+    display: inline-block;
+    height: 76px;
+    margin-bottom: 16px;
+  }
+}
+
+.bottomBar {
+  height: 46px;
+  color: @text-color;
+  line-height: 46px;
+  text-align: center;
+  border-top: 1px solid @border-color-split;
+  border-radius: 0 0 @border-radius-base @border-radius-base;
+  transition: all 0.3s;
+  div {
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+
+    &:only-child {
+      width: 100%;
+    }
+    &:not(:only-child):last-child {
+      border-left: 1px solid @border-color-split;
+    }
+  }
+}
+
+.modalBody {
+  padding: 0px 24px 24px 24px;
+}

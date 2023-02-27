@@ -1,0 +1,322 @@
+@import '~antd/es/style/themes/default.less';
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: MicrosoftYaHei;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+body{
+  background-color: #F1F3F6;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+.ant-pro-page-container-children-content {
+  margin: 12px 12px 0;
+}
+
+//全局Card组件由24->12
+.ant-layout .ant-card-body {
+  padding: 20;
+}
+
+// 排版布局行间距
+.ant-typography .ant-divider-horizontal {
+  margin: 12px 0;
+}
+
+canvas {
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead>tr,
+    &-tbody>tr {
+
+      >th,
+      >td {
+        white-space: pre;
+
+        >span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// 兼容IE11
+@media screen and(-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+  body .ant-design-pro>.ant-layout {
+    min-height: 100vh;
+  }
+}
+
+/**
+ * 顶部导航栏
+*/
+.ant-pro-top-nav-header-logo img {
+  margin: -14px 10px 0px 28px;
+}
+
+//设置选中menu
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-open,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-open,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected {
+  color: #00ce9b;
+}
+
+.ant-pro-basicLayout-content {
+  margin: 0;
+  background-color: #f1f3f6;
+  // height: calc(100vh - 56px);//top =56
+}
+
+.title-1 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.title-2 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title-3 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+//表单默认字体是title-4
+.title-4,
+.ant-form-item-label {
+  color: #333333;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.title-5 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.title-6 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.title-7 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.title-7 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.hoverable :hover {
+  cursor: pointer;
+}
+
+.btn {
+  height: 34px;
+  color: #ffffff;
+  background: #00ce9b;
+  border-radius: 4px;
+  border: 0;
+}
+
+//学生学习课程左侧菜单栏
+.ant-pro-basicLayout-content .course-menu {
+  width: 68px;
+  // height:100%;
+  height: calc(100vh - 56px);
+  font-weight: 400;
+  font-size: 11px;
+  font-family: Microsoft YaHei;
+  background: #ffffff;
+  border: 1px solid #e5e5e5; //top =56
+}
+
+.ant-pro-basicLayout-content .course-menu .course-menu-item {
+  height: 69px;
+  padding: 18px;
+  color: #333333;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.ant-pro-basicLayout-content .course-menu .course-menu-item img {
+  margin-left: 1px;
+  margin-bottom: 2px;
+  width: 21px;
+  height: 21px;
+}
+
+//选中变色
+.ant-pro-basicLayout-content .course-menu .item-active {
+  color: #ffffff;
+  background: #00ce9b;
+}
+
+/**
+* 学生学习课程左侧菜单栏 结束
+*/
+
+/**
+* 重写tabs css
+*/
+//修改tab背景和字体颜色
+.ant-layout-content .ant-tabs .ant-tabs-tab {
+  font-size: 1.1em;
+  background-color: #F1F3F6;
+  color: #666666;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+//修改tab选中项底部边框
+.ant-layout-content .ant-tabs-card.ant-tabs-top>.ant-tabs-nav .ant-tabs-tab-active,
+.ant-tabs-card.ant-tabs-top>div>.ant-tabs-nav .ant-tabs-tab-active {
+  border-bottom: 2px solid #00CE9B;
+}
+
+//修改tab选中项字体
+.ant-layout-content .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #333333;
+  font-weight: 700;
+}
+
+//tab与content分割线
+.ant-layout-content .ant-tabs-top>.ant-tabs-nav::before {
+  border-bottom: 1px solid #DCDCDC;
+}
+
+/**
+* 重写tabs css 结束
+*/
+
+/**
+* 自定义弹窗页脚为灰色
+*/
+.modal-custom .ant-modal-footer {
+  background: #F1F3F6;
+}
+
+/**
+* 自定义弹窗页眉为灰色
+*/
+.modal-custom .ant-modal-header {
+  background: #F1F3F6;
+}
+
+/**
+* 学生答题前message弹窗css
+*/
+.stu-answer-custom-class .ant-message-custom-content {
+  text-align: left;
+}
+
+.stu-answer-custom-class .ant-message-custom-content p {
+  margin-bottom: .4em;
+}
+
+//open新页面自定义样式
+.custom-single {
+  padding: 0;
+  margin: 0;
+
+  //自定义页面的头部统一样式
+  .custom-header-row {
+    width: 100%;
+    display: flex;
+    right: 0px;
+    padding: 0 20px 0 16px;
+    height: 56px;
+    line-height: 56px;
+    z-index: 19;
+    background-color: #fff;
+    border: 1px solid #E5E5E5;
+  }
+
+  .custom-header-row .header-logo {
+    display: flex;
+    position: relative;
+    min-width: 165px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .custom-header-row .header-logo img {
+    height: 42px;
+    margin: 0 10px 0 28px;
+  }
+
+  .main-container {
+    min-height: 100%;
+    padding-top: 76px;
+    margin: 0 auto;
+    width: 1200px;
+  }
+}
+// 题库类型的braft编辑器正常显示图片和文字的全局css样式
+.html-width-class {
+  max-width: 1000px;
+  white-space: pre-wrap;
+  img {
+    max-width: 100%;
+  }
+
+  p {
+    // width: 1000px;
+    word-break: break-all;
+    white-space:normal;
+    word-wrap: break-word;
+  }
+}

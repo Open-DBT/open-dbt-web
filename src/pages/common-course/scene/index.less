@@ -1,0 +1,84 @@
+/**
+ * 场景style
+ */
+
+.course .scene-tool {
+  height: 60px;
+  padding: 15px 0px 15px 24px;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+  margin-top: 8px;
+  width: 95%;
+}
+
+.course .scene-tool button{
+  margin-right: 14px;
+  border-radius: 4px;
+}
+
+.course .scene-list {
+  margin-top: 20px;
+}
+.course .scene-card {
+  width: 95%;
+  min-width: 500px;
+  height: 64px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+  margin-bottom:16px;
+}
+//悬浮卡片手型
+.course .scene-card:hover{
+  cursor: pointer;
+}
+
+.course .scene-card .card-index{
+  padding: 0px 5px;
+  min-width: 23px;  
+  background: #00CE9B;
+  border-radius: 4px;  
+  color: white;
+  text-align: center;
+  margin-right: 12px;
+}
+
+/**
+* 场景列表悬浮菜单
+*/
+.scene-card-buttons
+{
+  z-index: 999;
+  max-width: 310px;
+}
+.scene-card-buttons .ant-tooltip-arrow{
+  display: none;
+}
+.scene-card-buttons, .ant-popover-placement-topLeft, .ant-popover-placement-topRight{
+  padding: 0;
+}
+.scene-card-buttons .ant-tooltip-inner{
+  background:white;
+  border-radius:0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+.scene-card-buttons .ant-tooltip-inner-content{
+  color: #ffffff;  
+}
+.scene-card-buttons .card-buttons
+{
+  border: 0;
+}
+.scene-card-buttons .card-buttons button{
+  // border: 0;
+  width: 70px;
+  border-radius: 4px;    
+}
+.scene-card-buttons .card-buttons .gray-button{
+  background: #F1F3F6;
+}
+

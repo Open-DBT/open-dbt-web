@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>视频播放</title>
+  <script type="text/javascript" src="./jquery.min.js"></script>
+  <script type="text/javascript" src="./common.js"></script>
+</head>
+<style>
+  body,
+  html {
+    border: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .main-play-div {
+    height: 450px;
+    width: 100%;
+  }
+
+  #task-title {
+    color: #fff;
+    border-color: #FDDF66;
+    background: #FDDF66;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+    border-radius: 5px;
+    margin: 10px 0;
+    display: none;
+  }
+
+  .video-play-far::-webkit-media-controls-timeline {
+    display: none;
+  }
+</style>
+
+<body>
+  <div class="main-play-div">
+    <div id="task-title"></div>
+    <div id="task-finish"></div>
+    <video id="video-play" controls width="100%" height="100%" muted controlslist='nodownload'></video>
+  </div>
+</body>
+<script>
+  const urlPrfix = 'http://xxx.xxx.xx.xxx:xxxxx/open-dbt';
+  var id = ''
+  var resourceId = ''
+  var courseId = '' // 课程id
+  var catalogueId = ''  // 目录id
+  var isSpeed = ''  // 是否倍速
+  var isTask = ''   // 是否是任务点
+  var fastForward = ''  // 是否快进
+  var url = ''  // url
+  var duration = '' // 时长
+  var resourcesTime = 0;//资源时长
+
+  /**
+   * 回调函数，只被调用一次
+   */
+  function receiveMessageFromIndex(event) {
+    // document.getElementById("click").innerHTML = event.data.dataID
+    // document.getElementById("video-play").src = event.data.dataURL
+    function geturl(name) {
+      var reg = new RegExp("[^\?&]?" + encodeURI(name) + "=[^&]+");
+      var arr = window.parent.document.getElementById(event.data.dataID).contentWindow.location.search.match(reg);
+      if (arr != null) {
+        return decodeURI(arr[0].substring(arr[0].search("=") + 1));
+      }
+      return "";
+    }
+    id = geturl('id')
+    resourceId = geturl('resourceId')
+    catalogueId = geturl('catalogueId')
+    courseId = geturl('courseId')
+    isSpeed = geturl('isSpeed')
+    isTask = geturl('isTask')
+    fastForward = geturl('fastForward')
+    url = urlPrfix+geturl("url")
+    duration = geturl("duration")
+
+    // 放入url
+    if (url) {
+      document.getElementById("video-play").src = url
+    }
+    // 放入任务点
+    if (isTask == 1) {
+      document.getElementById('task-title').innerHTML = '任务点'
+      document.getElementById('task-title').style.padding = "5px 10px"
+    }
+    // console.log('receiveMessageFromIndex....')
+    // // 放入不可倍速
+    // if (isSpeed == 1) {
+    //   document.getElementById('video-play').setAttribute("controlslist", 'noplaybackrate nodownload')
+    // } else {
+    //   document.getElementById('video-play').setAttribute("controlslist", 'nodownload')
+    // }
+    // // 放入不可快进
+    // if (fastForward == 1) {
+    //   document.getElementById('video-play').className = 'video-play-far'
+    // } else {
+    //   document.getElementById('video-play').className = ''
+    // }
+  }
+
+  //其他 window 可以监听分发的 message
+  window.addEventListener("message", receiveMessageFromIndex, false);
+
+  // 监听播放器进度
+  var startTime = 0;
+  function videoInit() {
+    // console.log('videoInit...');
+    let elevideo = document.getElementById('video-play');
+    elevideo.addEventListener('loadedmetadata', () => {
+      // console.log('loadedmetadata 总长度:' + elevideo.duration);
+      // 修改完成时任务点的样式
+      if (duration && duration != 0 && (duration > Math.floor(elevideo.duration) || duration == Math.floor(elevideo.duration))) {
+        document.getElementById('task-title').style.backgroundColor = '#00CE9B'
+        document.getElementById('task-title').style.borderColor = '#00CE9B'
+      }
+      document.getElementById('task-title').style.display = 'inline-block'
+    });
+
+    elevideo.addEventListener('play', () => {
+      // console.log('开始播放...');
+      resourcesTime = Math.floor(elevideo.duration);//视频时长
+      startTime = new Date().getTime();
+
+      this.timer = setInterval(() => {
+        sendMessage();
+        startTime = new Date().getTime();
+        //30s保存一次数据
+      }, 1000 * 30);
+    });
+    elevideo.addEventListener('ended', () => {
+      // console.log('播放结束');
+      clearInterval(this.timer);
+      sendMessage();
+      //设置为0，说明已经停止
+      startTime = 0;
+    }, false);
+
+    // elevideo.addEventListener('waiting', function () {
+    //   console.log("加载中");
+    // });    
+    // elevideo.addEventListener('playing', () => {
+    //   console.log('播放中');
+    // });
+    // elevideo.addEventListener('pause', () => {
+    //   console.log("暂停播放");
+    // });    
+  }
+  videoInit()
+
+  /**
+   * @function 关闭调用事件
+   * @description 取得当前iframe对应的参数和视频信息，返回给父组件
+  */
+  window.addEventListener("unload", () => {
+    sendMessage();
+  }, false)
+
+  /**
+   * 发送方给content数据，
+   * /pages/stu/study/chapter/detail/content
+   */
+  function sendMessage() {
+    //已经结束不在发送message
+    if (startTime == 0) return;
+
+    var proc = Math.ceil((new Date().getTime() - startTime) / 1000);//计算观看秒
+    // console.log('发送保存请求...', ((new Date().getTime() - startTime) / 1000).toFixed(0));
+    /**
+     * message监听器说明
+     * otherWindow.postMessage(message, targetOrigin, [transfer]);
+     * otherWindow--其他窗口的一个引用，比如 iframe 的 contentWindow 属性、执行window.open返回的窗口对象
+     * message--将要发送到其他 window 的数据
+     * targetOrigin--通过窗口的 origin 属性来指定哪些窗口能接收到消息事件，其值可以是字符串"*"（表示无限制）或者一个 URI
+     * [transfer]--是一串和 message 同时传递的 Transferable 对象
+     */
+    window.parent.postMessage({
+      resourcesId: Number(resourceId),
+      catalogueId: Number(catalogueId),
+      courseId: Number(courseId),
+      duration: proc,
+      resourcesTime: resourcesTime,
+    })
+  }
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频</title>
+</head>
+<style>
+    body,html {
+        border: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    .main-div {
+        height: 450px;
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="main-div">
+        <video
+        id="video1"
+        controls
+        width="100%"
+        height="100%"
+        muted
+      ></video>
+      <!-- <div id="click">点我</div> -->
+    </div>
+</body>
+<script>
+    const urlPrfix = 'http://xxx.xxx.xx.xxx:xxxxx/open-dbt';
+    // document.getElementById('click').onclick=function(){
+    //     parent.postMessage('来自iframe的信息','*'); //window.postMessage
+        
+    // }
+
+//回调函数
+function receiveMessageFromIndex ( event ) {
+    console.log( '我是iframe,我接受到了：', event.data );
+    // document.getElementById("click").innerHTML = event.data.dataID
+    document.getElementById("video1").src = urlPrfix + event.data.dataURL
+}
+
+//监听message事件
+window.addEventListener("message", receiveMessageFromIndex, false);
+</script>
+
+</html>

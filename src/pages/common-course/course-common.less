@@ -1,0 +1,89 @@
+//学生课程首页
+.course {
+  height: 100%;
+}
+//课程标题
+.course .card-header-title{
+  width: 100%;
+  height: 54px;
+  background: #FFFFFF;
+  padding: 20px 0 0 40px;
+}
+//课程向导
+.course .card-header-nav{
+  width: 100%;
+  background: #FFFFFF;
+  // padding: 20px;  
+}
+.course .card-header-nav .nav-item{
+  border-radius: 8px;
+  // height: 96px;
+  color: #333333;
+  padding: .7rem;
+  margin: 0 .25rem;
+  flex-shrink: 1;//默认值都为1，即如果空间不足将等比例缩小。
+  flex-basis: 0;
+  flex-grow: 1;//若所有项目的flex-grow的数值都相同，则等分剩余空间
+}
+//悬浮手型
+.course .card-header-nav .nav-item :hover{
+  cursor: pointer;
+}
+.course .card-header-nav .nav-item .index{
+  width: 30px;
+  height: 30px;
+  background: #E6E6E6;
+  border-radius: 50%;  
+  text-align: center;
+  padding-top: 4px;
+  margin-right: 12px;
+  color: #FFFFFF;
+  flex-shrink:0;  
+}
+.course .card-header-nav .nav-item p{
+  margin: 0!important;
+}
+
+//选中未完成版边框
+.course .card-header-nav .selected{
+  border: 2px solid #FDDF66;
+}
+//选中完成边框
+.course .card-header-nav .selected-finish{
+  border: 2px solid #00ce9b;
+}
+//完成色
+.course .card-header-nav .isFinish{
+  background: #e5faf5;
+}
+//未完成遮罩
+.course .card-header-nav .no-isFinish{
+  opacity: .5;  
+}
+//标签序号，选中未完成
+.course .card-header-nav .selected .index{
+  background: #FDDF66;
+  color: #333333;
+}
+//标签序号，选中已完成
+.course .card-header-nav .isFinish .index{
+  background: #00CE9B;
+  color: #FFFFFF;
+}
+
+//课程信息
+.course .course-content {
+  margin: 22px auto;
+  width: 96%;
+}
+.course .course-info {
+  padding: 20px 30px;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+  margin-top: 8px;
+}
+
+.imglist img :hover{
+  cursor: pointer;
+}

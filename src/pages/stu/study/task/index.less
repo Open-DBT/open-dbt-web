@@ -1,0 +1,56 @@
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.task-stu-title {
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #333333;
+  line-height: 36px;
+  margin-bottom: 20px;
+}
+
+.task-list .task-card {
+  display: flex;
+  width: 300px;
+  height: 180px;
+  margin: 0px 25px 30px 0px;
+  margin-right: 40px;
+  padding: 20px 14px 20px 20px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+
+  .task-content {
+    margin: 0px 25px 30px 0px;
+
+    .button {
+      margin: 10px 0px;
+    }
+
+    .content-flex {
+      display: flex;
+
+      .content-left {
+        width: 180px;
+        display: flex;
+        align-items: flex-end;
+
+      }
+
+      .content-right {
+        margin-left: 40px;
+        color: #DDDDDD;
+
+        .super-icon-font {
+          vertical-align: middle;
+          font-size: 3rem;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

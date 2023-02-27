@@ -1,0 +1,90 @@
+/**
+ * 习题style
+ */
+.course .exercise-tool {
+  padding: 1rem 1.8rem;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+  margin-top: 8px;
+  justify-content: space-between;
+}
+.course .exercise-tool .tools{
+  flex-shrink:0;
+}
+.course .exercise-tool button{
+  margin-right: 10px;
+  border-radius: 4px;
+}
+.course .exercise-tool .search{
+  flex-shrink:1;
+}
+.course .exercise-list {
+  margin-top: 20px;
+}
+.course .exercise-card {
+  // width: 49.5%;
+  width:100%;
+  min-width: 500px;
+  height: 64px;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+  margin-bottom: .85rem;
+  margin: 10px 0;
+}
+//悬浮卡片手型
+.course .exercise-card:hover{
+  cursor: pointer;
+}
+.course .exercise-card .card-index{
+  padding: 0px 4px;
+  min-width: 23px;
+  background: #00CE9B;
+  border-radius: 4px;  
+  color: white;
+  text-align: center;
+  margin-right: 12px;
+}
+
+/**
+* 场景列表悬浮菜单
+*/
+.exercise-card-buttons
+{
+  z-index: 999;
+}
+.exercise-card-buttons .ant-tooltip-arrow{
+  display: none;
+}
+.exercise-card-buttons, .ant-popover-placement-topLeft, .ant-popover-placement-topRight{
+  padding: 0;
+}
+.exercise-card-buttons .ant-tooltip-inner{
+  // width: 250px;
+  background:white;
+  border-radius:0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+.exercise-card-buttons .ant-tooltip-inner-content{
+  color: #ffffff;  
+}
+.exercise-card-buttons .card-buttons
+{
+  border: 0;
+}
+.exercise-card-buttons .card-buttons button{
+  border: 0;
+  width: 70px;
+  border-radius: 4px;    
+}
+.exercise-card-buttons .card-buttons .gray-button{
+  background: #F1F3F6;
+}
+
+.exercise .ant-col .bf-content {
+  height: 100px;
+}

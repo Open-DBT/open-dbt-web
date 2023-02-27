@@ -1,0 +1,101 @@
+//学生首页
+.home {
+  width: 920px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.home .home-title {
+  margin-bottom: 14px;
+  font-family: Montserrat;
+}
+
+/**
+* 导航栏按钮组
+*/
+.home .nav-buttons div {
+  background-color: white;
+  width: 160px;
+  height: 60px;
+  line-height: 55px;
+  margin: 0 16px 22px 0;
+  text-align: center;
+  font-weight: 400;
+  color: #40210F;
+  border-radius: 4px;
+  box-shadow: 0px 0px 23px 1px rgba(0, 0, 0, 0.04);
+}
+
+.home .nav-buttons div:hover {
+  cursor: pointer;
+}
+
+.home .nav-buttons div img {
+  margin: 0px 5px 0px -10px;
+}
+
+/**
+* 课程列表悬浮菜单
+*/
+.course-card-buttons {
+  z-index: 999;
+}
+
+.course-card-buttons .ant-tooltip-arrow {
+  display: none;
+}
+
+.course-card-buttons,
+.ant-popover-placement-topLeft,
+.ant-popover-placement-topRight {
+  padding: 0;
+}
+
+.course-card-buttons .ant-tooltip-inner {
+  min-width: 150px;
+  // height: 64px;
+  background: #000000;
+  opacity: 0.9;
+  border-radius: 8px;
+  box-shadow: 0px 2px 23px 1px rgba(0, 0, 0, 0.25);
+  padding: 8px 20px;
+}
+
+.course-card-buttons .ant-tooltip-inner-content {
+  color: #ffffff;
+}
+
+.course-card-buttons .card-buttons {
+  justify-content: center;
+}
+
+.course-card-buttons .card-buttons div {
+  width: 28px;
+  text-align: center;
+}
+
+.course-card-buttons .card-buttons div:hover {
+  cursor: pointer;
+}
+
+.course-card-buttons .card-buttons img {
+  width: 16px;
+  height: 16px;
+}
+
+
+/**表格统一样式*/
+.table-simple-div .ant-table-content {
+  padding: 20px;
+}
+
+.table-simple-div .ant-table-thead .ant-table-cell {
+  background: #F1F3F6;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-simple-div .ant-table-tbody .ant-table-cell {
+  font-weight: 400;
+  color: #333333;
+}

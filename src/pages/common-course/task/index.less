@@ -1,0 +1,76 @@
+.task-container .task-tool {
+    // height: 60px;
+    // padding: 15px 0 15px 0;
+    background: #ffffff;
+    border-radius: 7px;
+    box-shadow: 0px 0px 22px 1px rgba(0, 0, 0, 0.09);
+    margin-top: 8px;
+    .header-div {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .taks-list-item {
+        &:hover {
+            background: #F5F7F6;
+            .content-edit {
+                display: inline-block !important;
+            }
+        }
+        &:focus {
+            background: #F5F7F6;
+            .content-edit {
+                display: inline-block !important;
+            }
+        }
+        padding: 20px 20px 0 20px;
+        .task-list-item-title {
+            font-size: 18px;
+            font-family: Microsoft YaHei;
+            font-weight: bold;
+            color: #333333;
+            line-height: 36px;
+        }
+        .task-list-item-content {
+            display: flex;
+            justify-content: space-between;
+            .content-edit {
+                display: none;
+                font-size: 16px;
+                font-family: Microsoft YaHei;
+                font-weight: 400;
+                color: #00BB8D;
+                line-height: 36px;
+            }
+            .content-opertion {
+                .opertion-number {
+                    margin-right: 20px;
+                  
+                    .number-one {
+                        font-size: 28px;
+                        font-family: Microsoft YaHei;
+                        font-weight: bold;
+                        color: #00CE9B;
+                        line-height: 36px;
+                    }
+                }
+                .opertion-text {
+                    font-size: 16px;
+                    font-family: Microsoft YaHei;
+                    font-weight: 400;
+                    color: #999999;
+                    line-height: 28px;
+                    margin-right: 40px;
+                }
+            }
+        }
+    }
+  }
+  
+  .task-container .task-tool button{
+    margin-right: 14px;
+    border-radius: 4px;
+  }
+  .task-container .task-header {
+    padding: 20px 30px 20px 30px;
+  }
